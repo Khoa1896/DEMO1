@@ -16,7 +16,7 @@ register();
 <div class="container">
      <form action="" method="post">
          <div class="form-group">
-             <label for="email">Ho Ten:</label>
+             <label for="email">Họ Tên:</label>
              <input type="text" name="hoten" class="form-control">
          </div>
          <div class="form-group">
@@ -24,15 +24,15 @@ register();
              <input type="text" name="username" class="form-control">
          </div>
          <div class="form-group">
-             <label  for="pwd">Password</label>
+             <label  for="pwd">Password:</label>
              <input type="password" name="password" class="form-control">
          </div>
          <div class="form-group">
-             <label  for="email">Email Address</label>
+             <label  for="email">Email Address:</label>
              <input type="email" name="email" class="form-control">
          </div>
          <div class="form-group">
-             <label  for="email">Phone Number</label>
+             <label  for="email">Phone Number:</label>
              <input type="tel" name="phone_number" class="form-control">
          </div>
          <button type="submit" class="btn btn-success">Register</button>
