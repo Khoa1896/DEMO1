@@ -7,6 +7,7 @@ function register()
         $password = $_POST['password'];
         $email = $_POST['email'];
         $phonenumber = $_POST['phone_number'];
+        var_dump($password);
         //tạo kết nối tới database
         $connect = new mysqli('localhost',"root","",'myDB');
         // Cho phép PHP lưu unicode --database
@@ -16,14 +17,14 @@ function register()
             var_dump($connect->connect_error);
             die("Connection failed: ". $connect->connect_error);
         } echo " Connection successfully";
-//        // sql to create table
-//        $sql = "CREATE TABLE MyGuests1 (
+        // sql to create table
+//        $sql = "CREATE TABLE MyGuests4 (
 //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //fullname VARCHAR(30) NOT NULL,
 //username VARCHAR(30) NOT NULL,
-//password VARCHAR(50),
+//password VARCHAR(50) NOT NULL,
 //email VARCHAR(30) ,
-//phonenumber VARCHAR(30),
+//phonenumber VARCHAR(30) NOT NULL,
 //reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 //)";
 //                if ($connect->query($sql) === TRUE) {
@@ -62,8 +63,8 @@ function register()
 //
 //        mysqli_close($connect);
 
-        $sql = "INSERT INTO MyGuests2 (firstname, lastname, email)
-VALUES ('".$hoten."', '".$username."', '".$password."')";
+        $sql = "INSERT INTO MYGUESTS4 (fullname, username,password)
+VALUES ('".$hoten."', '".$username."', '".$password."' )";
 
         if (mysqli_query($connect, $sql)) {
             echo "New record created successfully";
