@@ -8,14 +8,15 @@ function register()
         $email = $_POST['email'];
         $phonenumber = $_POST['phone_number'];
         //tạo kết nối tới database
-        $connect = new mysqli('localhost',"root","",'myDB');
+        $connect = new mysqli('localhost', "root", "", 'myDB');
         // Cho phép PHP lưu unicode --database
-        mysqli_set_charset($connect,"utf8");
+        mysqli_set_charset($connect, "utf8");
         //Kiểm tra kết nối có thành công không
-        if ($connect->connect_error){
+        if ($connect->connect_error) {
             var_dump($connect->connect_error);
-            die("Connection failed: ". $connect->connect_error);
-        } echo " Connection successfully";
+            die("Connection failed: " . $connect->connect_error);
+        }
+        echo " Connection successfully";
         mysqli_close($connect);
         // sql to create table
 //        $sql = "CREATE TABLE MyGuests4 (
@@ -94,5 +95,19 @@ function register()
 //        }
 //
 //        mysqli_close($conn);
+
     }
 }
+class Database
+{ public $con;
+    public function __construct()
+    {
+        $this->con = mysqli_connect("localhost","root","","test");
+        if($this->con){
+            echo 'Connected';
+        } else {
+            echo "Not Connected";
+        }
+    }
+}
+$obj = new Database();
