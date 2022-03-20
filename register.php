@@ -7,16 +7,16 @@ function register()
         $password = $_POST['password'];
         $email = $_POST['email'];
         $phonenumber = $_POST['phone_number'];
-        var_dump($password);
         //tạo kết nối tới database
         $connect = new mysqli('localhost',"root","",'myDB');
         // Cho phép PHP lưu unicode --database
         mysqli_set_charset($connect,"utf8");
-    //Kiểm tra kết nối có thành công không
+        //Kiểm tra kết nối có thành công không
         if ($connect->connect_error){
             var_dump($connect->connect_error);
             die("Connection failed: ". $connect->connect_error);
         } echo " Connection successfully";
+        mysqli_close($connect);
         // sql to create table
 //        $sql = "CREATE TABLE MyGuests4 (
 //id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -43,15 +43,7 @@ function register()
 
 //        mysqli_close($connect);
 
- //sql to create table
-//        $sql = "CREATE TABLE MyGuests3 (
-//id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//FULLNAME VARCHAR(30) NOT NULL,
-//USERNAME VARCHAR(30) NOT NULL,
-//PASSWORD VARCHAR(30) NOT NULL,
-//EMAIL VARCHAR(50),
-//PHONENUMBER VARCHAR(30) NOT NULL,
-//
+
 //reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 //)";
 //
@@ -62,17 +54,17 @@ function register()
 //        }
 //
 //        mysqli_close($connect);
-
-        $sql = "INSERT INTO MYGUESTS4 (fullname, username,password)
-VALUES ('".$hoten."', '".$username."', '".$password."' )";
-
-        if (mysqli_query($connect, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($connect);
-        }
-
-        mysqli_close($connect);
+//
+//        $sql = "INSERT INTO MYGUESTS4 (fullname, username,password)
+//VALUES ('".$hoten."', '".$username."', '".$password."' )";
+//
+//        if (mysqli_query($connect, $sql)) {
+//            echo "New record created successfully";
+//        } else {
+//            echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+//        }
+//
+//        mysqli_close($connect);
 
 
 //
@@ -103,4 +95,4 @@ VALUES ('".$hoten."', '".$username."', '".$password."' )";
 //
 //        mysqli_close($conn);
     }
-    }
+}
